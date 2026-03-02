@@ -1,146 +1,865 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stratus Paraquedismo | Salto Duplo e Curso AFF</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stratus Paraquedismo - Salto Duplo, Balonismo e Cursos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e3a5f;
+            line-height: 1.5;
+            background-color: #ffffff;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;scroll-behavior:smooth;}
-body{background:#050505;color:#fff;overflow-x:hidden;}
-header{position:fixed;width:100%;padding:25px 8%;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);transition:.4s;}
-header.scrolled{background:rgba(0,0,0,0.9);}
-.logo{font-weight:900;letter-spacing:4px;}
-nav a{color:#fff;text-decoration:none;margin-left:40px;position:relative;}
-nav a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:#ff2e2e;transition:.4s;}
-nav a:hover::after{width:100%;}
-.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
-.hero video{position:absolute;width:100%;height:100%;object-fit:cover;z-index:-1;filter:brightness(0.4);}
-.hero-content{max-width:900px;opacity:0;transform:translateY(40px);transition:1.5s ease;}
-.hero h1{font-size:65px;font-weight:900;letter-spacing:2px;}
-.hero p{margin-top:20px;font-size:22px;color:#ccc;}
-.btn{display:inline-block;margin-top:30px;padding:16px 45px;background:#ff2e2e;color:#fff;text-decoration:none;font-weight:600;letter-spacing:1px;transition:.3s;border:none;cursor:pointer;}
-.btn:hover{background:#cc0000;transform:translateY(-5px);}
-section{padding:140px 10%;opacity:0;transform:translateY(80px);transition:1.2s ease;}
-.section-title{font-size:46px;margin-bottom:60px;font-weight:800;text-align:center;}
-.dark{background:#0c0c0c;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:60px;}
-.card{background:#111;padding:50px;border:1px solid #1f1f1f;transition:.4s;text-align:center;}
-.card:hover{transform:translateY(-10px);border-color:#ff2e2e;}
-.price{font-size:42px;color:#ff2e2e;font-weight:900;margin:20px 0;}
-.urgency{color:#ff2e2e;font-weight:600;margin-top:15px;}
-.gallery img{width:100%;height:400px;object-fit:cover;transition:.6s;}
-.gallery img:hover{transform:scale(1.08);}
-.testimonial{background:#111;padding:40px;margin-bottom:30px;border-left:4px solid #ff2e2e;}
-footer{background:#000;text-align:center;padding:60px;color:#777;}
-.whatsapp{position:fixed;bottom:35px;right:35px;background:#25D366;padding:22px;border-radius:50%;color:#fff;font-size:24px;text-decoration:none;box-shadow:0 0 25px rgba(0,0,0,0.6);transition:.4s;}
-.whatsapp:hover{transform:scale(1.15);}
-.visible{opacity:1!important;transform:translateY(0)!important;}
-@media(max-width:768px){.hero h1{font-size:38px;}nav{display:none;}}
-</style>
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        :root {
+            --azul-escuro: #0a2a44;
+            --azul-claro: #e1f0fa;
+            --azul-medio: #7ab0d6;
+            --texto-escuro: #1e3a5f;
+            --texto-claro: #4a6b8a;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--azul-escuro);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #2d6a9f;
+            font-weight: 600;
+            font-size: 14px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--texto-escuro);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2d6a9f;
+        }
+
+        .language-switch {
+            display: flex;
+            gap: 8px;
+            margin-left: 16px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--azul-medio);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--azul-escuro);
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background-color: var(--azul-escuro);
+            color: white;
+            border-color: var(--azul-escuro);
+        }
+
+        .lang-btn:hover {
+            background-color: var(--azul-claro);
+        }
+
+        .social-header {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--azul-claro);
+            color: var(--azul-escuro);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            transition: all 0.2s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--azul-escuro);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a2a44 0%, #1d4e7c 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--azul-escuro);
+            font-weight: 700;
+            padding: 16px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 16px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--azul-escuro);
+        }
+
+        /* Seções */
+        section {
+            padding: 80px 0;
+        }
+
+        section.bg-light {
+            background-color: var(--azul-claro);
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--azul-escuro);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--texto-claro);
+            max-width: 700px;
+            margin: 0 auto 48px;
+            font-size: 18px;
+        }
+
+        /* Cards de serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 30px;
+            padding: 36px 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+            border: 1px solid #cde1f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(10, 42, 68, 0.08);
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            color: var(--azul-escuro);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--texto-claro);
+            margin-bottom: 24px;
+            font-size: 16px;
+        }
+
+        .card-link {
+            color: var(--azul-escuro);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .card-link:hover {
+            gap: 12px;
+            color: #2d6a9f;
+        }
+
+        /* Localização em destaque */
+        .location-highlight {
+            background: white;
+            border-radius: 60px;
+            padding: 24px 40px;
+            display: inline-block;
+            margin: 20px auto 0;
+            border: 2px solid var(--azul-medio);
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--azul-escuro);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .location-highlight i {
+            color: #2d6a9f;
+            margin-right: 8px;
+        }
+
+        /* Depoimentos */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border: 1px solid #d3e4f2;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--texto-escuro);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--azul-escuro);
+        }
+
+        /* Missão */
+        .mission-box {
+            background: white;
+            border-radius: 50px;
+            padding: 56px 48px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 2px solid var(--azul-medio);
+        }
+
+        .mission-box h3 {
+            font-size: 36px;
+            color: var(--azul-escuro);
+            margin-bottom: 24px;
+        }
+
+        .mission-box p {
+            font-size: 18px;
+            color: var(--texto-claro);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 30px 24px;
+            border-radius: 24px;
+            border: 1px solid #d3e4f2;
+            text-align: center;
+        }
+
+        .feature-item h4 {
+            color: var(--azul-escuro);
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .feature-item p {
+            color: var(--texto-claro);
+            font-size: 15px;
+        }
+
+        /* Time */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 30px;
+            padding: 28px 16px;
+            text-align: center;
+            border: 1px solid #d3e4f2;
+            transition: transform 0.2s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        }
+
+        .team-member h4 {
+            color: var(--azul-escuro);
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .team-member p {
+            color: var(--texto-claro);
+            font-size: 14px;
+        }
+
+        /* Vídeo placeholder */
+        .video-placeholder {
+            background: linear-gradient(145deg, var(--azul-escuro), #17477c);
+            border-radius: 40px;
+            padding: 120px 20px;
+            text-align: center;
+            color: white;
+            margin: 40px 0;
+        }
+
+        .video-placeholder p {
+            font-size: 22px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--azul-escuro);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 20px;
+            margin-bottom: 24px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .footer-col p, .footer-col a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .instagram-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 18px;
+            border-radius: 40px;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+        }
+
+        /* Localização box */
+        .location-box {
+            background: white;
+            border-radius: 30px;
+            padding: 36px;
+            text-align: center;
+            margin-top: 30px;
+            border: 2px solid var(--azul-medio);
+        }
+
+        .location-box h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .location-box p {
+            color: var(--texto-claro);
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .location-box .highlight {
+            color: var(--azul-escuro);
+            font-weight: 700;
+            background: var(--azul-claro);
+            padding: 8px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 16px;
+        }
+
+        /* WhatsApp float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s;
+            z-index: 100;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20b859;
+            transform: scale(1.1);
+        }
+
+        /* Elementos multilíngues - inicialmente pt visível, en oculto */
+        .lang-pt {
+            display: block;
+        }
+        .lang-en {
+            display: none;
+        }
+
+        /* Ajustes responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+            .hero h2 {
+                font-size: 36px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            .btn {
+                padding: 14px 28px;
+                font-size: 16px;
+            }
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+            .location-highlight {
+                font-size: 16px;
+                padding: 16px 20px;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5531996115628" class="whatsapp-float" target="_blank" title="Fale conosco / Talk to us">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+    </a>
 
-<header id="header">
-<div class="logo">STRATUS</div>
-<nav>
-<a href="#sobre">Sobre</a>
-<a href="#valores">Valores</a>
-<a href="#depoimentos">Depoimentos</a>
-<a href="#contato">Contato</a>
-</nav>
-</header>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>STRATUS</h1>
+                <span>PARAQUEDISMO</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="lang-pt">Início</a>
+                <a href="#" class="lang-en">Home</a>
+                <a href="#" class="lang-pt">Saltos</a>
+                <a href="#" class="lang-en">Jumps</a>
+                <a href="#" class="lang-pt">Balão</a>
+                <a href="#" class="lang-en">Balloon</a>
+                <a href="#" class="lang-pt">Cursos</a>
+                <a href="#" class="lang-en">Courses</a>
+                <a href="#" class="lang-pt">Contato</a>
+                <a href="#" class="lang-en">Contact</a>
+                
+                <div class="language-switch">
+                    <button class="lang-btn active" onclick="switchLanguage('pt')">PT</button>
+                    <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+                </div>
+                
+                <div class="social-header">
+                    <a href="https://instagram.com/daillytaina" target="_blank" class="social-icon">📷</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<section class="hero">
-<video autoplay muted loop playsinline>
-<source src="https://cdn.coverr.co/videos/coverr-skydiving-over-the-clouds-1575/1080p.mp4" type="video/mp4">
-</video>
-<div class="hero-content">
-<h1>EXPERIÊNCIA QUE DESAFIA O CÉU</h1>
-<p>Salto Duplo & Curso AFF com padrão internacional</p>
-<a href="https://wa.me/5531996115628?text=Olá! Quero agendar um salto na Stratus Paraquedismo." class="btn">AGENDAR AGORA</a>
-</div>
-</section>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="lang-pt">
+                    <h2>Uma experiência que você nunca vai esquecer!</h2>
+                    <p>Stratus Paraquedismo - Jaboticatubas, Minas Gerais</p>
+                </div>
+                <div class="lang-en">
+                    <h2>An experience you'll never forget!</h2>
+                    <p>Stratus Skydiving - Jaboticatubas, Minas Gerais, Brazil</p>
+                </div>
+                <div class="location-highlight">
+                    <span>📍</span> Jaboticatubas - Minas Gerais - Brazil
+                </div>
+                <div style="margin-top: 32px;">
+                    <a href="#" class="btn lang-pt">Agende Agora</a>
+                    <a href="#" class="btn lang-en">Book Now</a>
+                    <a href="#" class="btn btn-outline lang-pt">Saiba Mais</a>
+                    <a href="#" class="btn btn-outline lang-en">Learn More</a>
+                </div>
+            </div>
+        </section>
 
-<section id="sobre">
-<h2 class="section-title">Sobre a Stratus Paraquedismo</h2>
-<p style="text-align:center;max-width:800px;margin:auto;">
-A Stratus oferece experiências exclusivas de paraquedismo com segurança máxima, instrutores certificados e estrutura profissional.
-Cada salto é planejado para entregar emoção, adrenalina e uma memória inesquecível.
-</p>
-</section>
+        <!-- Serviços -->
+        <section>
+            <div class="container">
+                <div class="lang-pt">
+                    <h2 class="section-title">Nossos Serviços</h2>
+                    <p class="section-subtitle">Experiências incríveis nos céus de Minas Gerais</p>
+                </div>
+                <div class="lang-en">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">Incredible experiences in the skies of Minas Gerais</p>
+                </div>
 
-<section id="valores" class="dark">
-<h2 class="section-title">Investimento</h2>
-<div class="grid">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3 class="lang-pt">Salto Duplo</h3>
+                        <h3 class="lang-en">Tandem Jump</h3>
+                        <p class="lang-pt">Salte com um instrutor experiente e sinta a adrenalina de voar.</p>
+                        <p class="lang-en">Jump with an experienced instructor and feel the adrenaline of flying.</p>
+                        <a href="#" class="card-link lang-pt">Saiba Mais →</a>
+                        <a href="#" class="card-link lang-en">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="lang-pt">Passeio de Balão</h3>
+                        <h3 class="lang-en">Balloon Ride</h3>
+                        <p class="lang-pt">Explore novos horizontes com um passeio de balão inesquecível.</p>
+                        <p class="lang-en">Explore new horizons with an unforgettable balloon ride.</p>
+                        <a href="#" class="card-link lang-pt">Agende Agora →</a>
+                        <a href="#" class="card-link lang-en">Book Now →</a>
+                    </div>
+                    <div class="service-card">
+                        <h3 class="lang-pt">Curso de Paraquedismo</h3>
+                        <h3 class="lang-en">Skydiving Course</h3>
+                        <p class="lang-pt">Aprenda a voar na maior área de paraquedismo da América Latina.</p>
+                        <p class="lang-en">Learn to fly in the largest skydiving area in Latin America.</p>
+                        <a href="#" class="card-link lang-pt">Saiba Mais →</a>
+                        <a href="#" class="card-link lang-en">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div class="card">
-<h3>Salto Duplo</h3>
-<div class="price">R$ 790</div>
-<p>Salto a 4.000 metros com instrutor certificado + equipamentos completos.</p>
-<p>Parcelamento em até 12x no cartão.</p>
-<div class="urgency">Vagas limitadas para este mês</div>
-<a href="https://wa.me/5531996115628?text=Olá! Quero agendar um Salto Duplo na Stratus." class="btn">AGENDAR SALTO</a>
-</div>
+        <!-- Depoimentos -->
+        <section class="bg-light">
+            <div class="container">
+                <div class="lang-pt">
+                    <h2 class="section-title">Depoimentos</h2>
+                    <p class="section-subtitle">O que nossos clientes dizem sobre a experiência</p>
+                </div>
+                <div class="lang-en">
+                    <h2 class="section-title">Testimonials</h2>
+                    <p class="section-subtitle">What our clients say about the experience</p>
+                </div>
 
-<div class="card">
-<h3>Curso AFF</h3>
-<div class="price">R$ 7.900</div>
-<p>Formação completa Accelerated Free Fall.</p>
-<p>Parcelamento em até 12x no cartão.</p>
-<div class="urgency">Turmas reduzidas</div>
-<a href="https://wa.me/5531996115628?text=Olá! Quero informações sobre o Curso AFF da Stratus." class="btn">QUERO SER PARAQUEDISTA</a>
-</div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"Uma das experiências mais incríveis da minha vida! Estrutura perfeita e equipe muito profissional."</p>
+                        <div class="testimonial-author">— Ana Silva</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Realizei meu sonho de saltar de paraquedas. A Stratus tem uma equipe sensacional, super recomendo!"</p>
+                        <div class="testimonial-author">— Carlos Eduardo</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Atendimento excelente, instrutores muito experientes e uma vista maravilhosa. Voltarei com certeza!"</p>
+                        <div class="testimonial-author">— Mariana Costa</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</div>
-</section>
+        <!-- Missão -->
+        <section>
+            <div class="container">
+                <div class="mission-box">
+                    <h3 class="lang-pt">Nossa Missão</h3>
+                    <h3 class="lang-en">Our Mission</h3>
+                    <p class="lang-pt">Proporcionar a melhor experiência da sua vida com segurança, profissionalismo e a energia única que só o céu de Minas Gerais pode oferecer.</p>
+                    <p class="lang-en">Provide the best experience of your life with safety, professionalism and the unique energy that only the skies of Minas Gerais can offer.</p>
+                </div>
+            </div>
+        </section>
 
-<section class="gallery">
-<h2 class="section-title">Galeria</h2>
-<div class="grid">
-<img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e">
-<img src="https://images.unsplash.com/photo-1478827387698-1527785b1e9d">
-<img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29">
-</div>
-</section>
+        <!-- Por que a Stratus -->
+        <section class="bg-light">
+            <div class="container">
+                <div class="lang-pt">
+                    <h2 class="section-title">Por que a Stratus?</h2>
+                    <p class="section-subtitle">Somos apaixonados pelo que fazemos</p>
+                </div>
+                <div class="lang-en">
+                    <h2 class="section-title">Why Stratus?</h2>
+                    <p class="section-subtitle">We are passionate about what we do</p>
+                </div>
 
-<section id="depoimentos" class="dark">
-<h2 class="section-title">Depoimentos</h2>
-<div class="testimonial">
-<p>"Experiência surreal! Equipe extremamente profissional."</p>
-<strong>— Cliente</strong>
-</div>
-<div class="testimonial">
-<p>"Melhor decisão da minha vida. Segurança total."</p>
-<strong>— Cliente</strong>
-</div>
-</section>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4 class="lang-pt">Profissionais experientes</h4>
+                        <h4 class="lang-en">Experienced professionals</h4>
+                        <p class="lang-pt">Equipe altamente capacitada e certificada</p>
+                        <p class="lang-en">Highly trained and certified team</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4 class="lang-pt">Equipamentos novos</h4>
+                        <h4 class="lang-en">New equipment</h4>
+                        <p class="lang-pt">Equipamentos sempre revisados e atualizados</p>
+                        <p class="lang-en">Equipment always checked and updated</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4 class="lang-pt">Vista privilegiada</h4>
+                        <h4 class="lang-en">Privileged view</h4>
+                        <p class="lang-pt">Visual deslumbrante de Jaboticatubas</p>
+                        <p class="lang-en">Breathtaking view of Jaboticatubas</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4 class="lang-pt">Estrutura completa</h4>
+                        <h4 class="lang-en">Complete structure</h4>
+                        <p class="lang-pt">Lanchonete, lounge, estacionamento e mais</p>
+                        <p class="lang-en">Snack bar, lounge, parking and more</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="contato">
-<h2 class="section-title">Contato</h2>
-<p style="text-align:center;">Jaboticatubas – MG</p>
-<p style="text-align:center;">WhatsApp: (31) 99611-5628</p>
-</section>
+        <!-- Localização em destaque -->
+        <section>
+            <div class="container">
+                <div class="location-box">
+                    <h3 class="lang-pt">📍 Onde estamos</h3>
+                    <h3 class="lang-en">📍 Where to find us</h3>
+                    <p><strong>Jaboticatubas - Minas Gerais - Brazil</strong></p>
+                    <p class="lang-pt" style="margin-top: 12px;">A apenas 60 km de Belo Horizonte</p>
+                    <p class="lang-en" style="margin-top: 12px;">Only 60 km from Belo Horizonte</p>
+                    <div class="highlight">🇧🇷 Minas Gerais, Brasil</div>
+                </div>
+            </div>
+        </section>
 
-<footer>
-© 2026 Stratus Paraquedismo - Todos os direitos reservados
-</footer>
+        <!-- Nosso time -->
+        <section class="bg-light">
+            <div class="container">
+                <div class="lang-pt">
+                    <h2 class="section-title">Nosso Time</h2>
+                    <p class="section-subtitle">Profissionais apaixonados pelo paraquedismo</p>
+                </div>
+                <div class="lang-en">
+                    <h2 class="section-title">Our Team</h2>
+                    <p class="section-subtitle">Professionals passionate about skydiving</p>
+                </div>
 
-<a href="https://wa.me/5531996115628?text=Olá! Quero agendar um salto na Stratus." class="whatsapp">📲</a>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h4>Equipe Stratus</h4>
+                        <p class="lang-pt">Instrutores certificados</p>
+                        <p class="lang-en">Certified instructors</p>
+                    </div>
+                    <div class="team-member">
+                        <h4>Equipe Stratus</h4>
+                        <p class="lang-pt">Mais de 10.000 saltos</p>
+                        <p class="lang-en">Over 10,000 jumps</p>
+                    </div>
+                    <div class="team-member">
+                        <h4>Equipe Stratus</h4>
+                        <p class="lang-pt">Especialistas em safety</p>
+                        <p class="lang-en">Safety specialists</p>
+                    </div>
+                    <div class="team-member">
+                        <h4>Equipe Stratus</h4>
+                        <p class="lang-pt">Paixão pelo esporte</p>
+                        <p class="lang-en">Passion for the sport</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<script>
-const elements=document.querySelectorAll("section,.hero-content");
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add("visible");}
-});
-},{threshold:0.2});
-elements.forEach(el=>observer.observe(el));
-window.addEventListener("scroll",()=>{document.getElementById("header").classList.toggle("scrolled",window.scrollY>50);});
-</script>
+        <!-- Vídeo placeholder -->
+        <section>
+            <div class="container">
+                <div class="video-placeholder">
+                    <p class="lang-pt">▶️ Veja como é o salto duplo</p>
+                    <p class="lang-en">▶️ See how the tandem jump works</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Stratus</h4>
+                    <p class="lang-pt">Paraquedismo e Balonismo</p>
+                    <p class="lang-en">Skydiving and Ballooning</p>
+                    <p>Jaboticatubas - MG</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="lang-pt">Contato</h4>
+                    <h4 class="lang-en">Contact</h4>
+                    <p>📱 <a href="https://wa.me/5531996115628" target="_blank">+55 31 99611-5628</a></p>
+                    <p>📧 contato@stratusparaquedismo.com.br</p>
+                    <a href="https://instagram.com/daillytaina" target="_blank" class="instagram-link">📷 @daillytaina</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="lang-pt">Localização</h4>
+                    <h4 class="lang-en">Location</h4>
+                    <p>Jaboticatubas</p>
+                    <p>Minas Gerais</p>
+                    <p>Brazil</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p class="lang-pt">© 2026 Stratus Paraquedismo. Todos os direitos reservados.</p>
+                <p class="lang-en">© 2026 Stratus Skydiving. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            const ptElements = document.querySelectorAll('.lang-pt');
+            const enElements = document.querySelectorAll('.lang-en');
+            const buttons = document.querySelectorAll('.lang-btn');
+            
+            if (lang === 'pt') {
+                ptElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+                document.documentElement.lang = 'pt-BR';
+            } else {
+                ptElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                buttons[1].classList.add('active');
+                buttons[0].classList.remove('active');
+                document.documentElement.lang = 'en';
+            }
+        }
+
+        // Inicializa com português
+        switchLanguage('pt');
+    </script>
 </body>
 </html>
