@@ -5,164 +5,142 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stratus Paraquedismo | Salto Duplo e Curso AFF</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#000;
-color:#fff;
-line-height:1.6;
-}
-
-header{
-position:fixed;
-width:100%;
-background:rgba(0,0,0,0.85);
-padding:15px 30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
-}
-
-header h1{
-font-size:18px;
-}
-
-nav a{
-color:#fff;
-margin-left:15px;
-text-decoration:none;
-font-size:14px;
-}
-
-.hero{
-height:100vh;
-background:url('https://images.unsplash.com/photo-1508614589041-895b88991e3e') center/cover no-repeat;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-
-.hero h2{
-font-size:40px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-margin-bottom:30px;
-}
-
-.btn{
-background:#ff0000;
-color:#fff;
-padding:12px 25px;
-text-decoration:none;
-border-radius:5px;
-font-weight:bold;
-}
-
-section{
-padding:80px 20px;
-max-width:900px;
-margin:auto;
-}
-
-section h2{
-margin-bottom:20px;
-font-size:28px;
-}
-
-.dark{
-background:#111;
-}
-
-footer{
-text-align:center;
-padding:30px;
-background:#000;
-font-size:14px;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25d366;
-color:#fff;
-padding:15px 18px;
-border-radius:50%;
-font-size:20px;
-text-decoration:none;
-box-shadow:0 0 10px rgba(0,0,0,0.5);
-}
-
-@media(max-width:768px){
-.hero h2{
-font-size:28px;
-}
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;scroll-behavior:smooth;}
+body{background:#050505;color:#fff;overflow-x:hidden;}
+header{position:fixed;width:100%;padding:25px 8%;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);transition:.4s;}
+header.scrolled{background:rgba(0,0,0,0.9);}
+.logo{font-weight:900;letter-spacing:4px;}
+nav a{color:#fff;text-decoration:none;margin-left:40px;position:relative;}
+nav a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:#ff2e2e;transition:.4s;}
+nav a:hover::after{width:100%;}
+.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.hero video{position:absolute;width:100%;height:100%;object-fit:cover;z-index:-1;filter:brightness(0.4);}
+.hero-content{max-width:900px;opacity:0;transform:translateY(40px);transition:1.5s ease;}
+.hero h1{font-size:65px;font-weight:900;letter-spacing:2px;}
+.hero p{margin-top:20px;font-size:22px;color:#ccc;}
+.btn{display:inline-block;margin-top:30px;padding:16px 45px;background:#ff2e2e;color:#fff;text-decoration:none;font-weight:600;letter-spacing:1px;transition:.3s;border:none;cursor:pointer;}
+.btn:hover{background:#cc0000;transform:translateY(-5px);}
+section{padding:140px 10%;opacity:0;transform:translateY(80px);transition:1.2s ease;}
+.section-title{font-size:46px;margin-bottom:60px;font-weight:800;text-align:center;}
+.dark{background:#0c0c0c;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:60px;}
+.card{background:#111;padding:50px;border:1px solid #1f1f1f;transition:.4s;text-align:center;}
+.card:hover{transform:translateY(-10px);border-color:#ff2e2e;}
+.price{font-size:42px;color:#ff2e2e;font-weight:900;margin:20px 0;}
+.urgency{color:#ff2e2e;font-weight:600;margin-top:15px;}
+.gallery img{width:100%;height:400px;object-fit:cover;transition:.6s;}
+.gallery img:hover{transform:scale(1.08);}
+.testimonial{background:#111;padding:40px;margin-bottom:30px;border-left:4px solid #ff2e2e;}
+footer{background:#000;text-align:center;padding:60px;color:#777;}
+.whatsapp{position:fixed;bottom:35px;right:35px;background:#25D366;padding:22px;border-radius:50%;color:#fff;font-size:24px;text-decoration:none;box-shadow:0 0 25px rgba(0,0,0,0.6);transition:.4s;}
+.whatsapp:hover{transform:scale(1.15);}
+.visible{opacity:1!important;transform:translateY(0)!important;}
+@media(max-width:768px){.hero h1{font-size:38px;}nav{display:none;}}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Stratus Paraquedismo</h1>
+<header id="header">
+<div class="logo">STRATUS</div>
 <nav>
-<a href="#salto">Salto</a>
-<a href="#aff">Curso AFF</a>
+<a href="#sobre">Sobre</a>
+<a href="#valores">Valores</a>
+<a href="#depoimentos">Depoimentos</a>
 <a href="#contato">Contato</a>
 </nav>
 </header>
 
 <section class="hero">
-<h2>Viva a experiência de voar</h2>
-<p>Salto Duplo e Curso AFF em Minas Gerais</p>
-<a href="https://wa.me/5531999999999" class="btn">Agendar Agora</a>
+<video autoplay muted loop playsinline>
+<source src="https://cdn.coverr.co/videos/coverr-skydiving-over-the-clouds-1575/1080p.mp4" type="video/mp4">
+</video>
+<div class="hero-content">
+<h1>EXPERIÊNCIA QUE DESAFIA O CÉU</h1>
+<p>Salto Duplo & Curso AFF com padrão internacional</p>
+<a href="https://wa.me/5531996115628?text=Olá! Quero agendar um salto na Stratus Paraquedismo." class="btn">AGENDAR AGORA</a>
+</div>
 </section>
 
-<section id="salto">
-<h2>Salto Duplo</h2>
-<p>
-O Salto Duplo é a maneira mais segura e emocionante de experimentar o paraquedismo.
-Você salta preso a um instrutor experiente e aproveita cerca de 50 segundos de queda livre
-a aproximadamente 200km/h.
+<section id="sobre">
+<h2 class="section-title">Sobre a Stratus Paraquedismo</h2>
+<p style="text-align:center;max-width:800px;margin:auto;">
+A Stratus oferece experiências exclusivas de paraquedismo com segurança máxima, instrutores certificados e estrutura profissional.
+Cada salto é planejado para entregar emoção, adrenalina e uma memória inesquecível.
 </p>
 </section>
 
-<section id="aff" class="dark">
-<h2>Curso AFF</h2>
-<p>
-O Curso AFF (Accelerated Free Fall) é o método mais moderno para formar paraquedistas.
-Aprenda desde o primeiro salto com acompanhamento profissional até conquistar autonomia.
-</p>
+<section id="valores" class="dark">
+<h2 class="section-title">Investimento</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Salto Duplo</h3>
+<div class="price">R$ 790</div>
+<p>Salto a 4.000 metros com instrutor certificado + equipamentos completos.</p>
+<p>Parcelamento em até 12x no cartão.</p>
+<div class="urgency">Vagas limitadas para este mês</div>
+<a href="https://wa.me/5531996115628?text=Olá! Quero agendar um Salto Duplo na Stratus." class="btn">AGENDAR SALTO</a>
+</div>
+
+<div class="card">
+<h3>Curso AFF</h3>
+<div class="price">R$ 7.900</div>
+<p>Formação completa Accelerated Free Fall.</p>
+<p>Parcelamento em até 12x no cartão.</p>
+<div class="urgency">Turmas reduzidas</div>
+<a href="https://wa.me/5531996115628?text=Olá! Quero informações sobre o Curso AFF da Stratus." class="btn">QUERO SER PARAQUEDISTA</a>
+</div>
+
+</div>
+</section>
+
+<section class="gallery">
+<h2 class="section-title">Galeria</h2>
+<div class="grid">
+<img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e">
+<img src="https://images.unsplash.com/photo-1478827387698-1527785b1e9d">
+<img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29">
+</div>
+</section>
+
+<section id="depoimentos" class="dark">
+<h2 class="section-title">Depoimentos</h2>
+<div class="testimonial">
+<p>"Experiência surreal! Equipe extremamente profissional."</p>
+<strong>— Cliente</strong>
+</div>
+<div class="testimonial">
+<p>"Melhor decisão da minha vida. Segurança total."</p>
+<strong>— Cliente</strong>
+</div>
 </section>
 
 <section id="contato">
-<h2>Contato</h2>
-<p>📍 Jaboticatubas – MG</p>
-<p>📲 WhatsApp: (31) 99999-9999</p>
-<p>📸 Instagram: @stratusparaquedismo</p>
+<h2 class="section-title">Contato</h2>
+<p style="text-align:center;">Jaboticatubas – MG</p>
+<p style="text-align:center;">WhatsApp: (31) 99611-5628</p>
 </section>
 
 <footer>
-© 2026 Stratus Paraquedismo. Todos os direitos reservados.
+© 2026 Stratus Paraquedismo - Todos os direitos reservados
 </footer>
 
-<a href="https://wa.me/5531999999999" class="whatsapp">📲</a>
+<a href="https://wa.me/5531996115628?text=Olá! Quero agendar um salto na Stratus." class="whatsapp">📲</a>
+
+<script>
+const elements=document.querySelectorAll("section,.hero-content");
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add("visible");}
+});
+},{threshold:0.2});
+elements.forEach(el=>observer.observe(el));
+window.addEventListener("scroll",()=>{document.getElementById("header").classList.toggle("scrolled",window.scrollY>50);});
+</script>
 
 </body>
 </html>
