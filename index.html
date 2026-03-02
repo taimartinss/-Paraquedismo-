@@ -3,101 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stratus Paraquedismo | Experiências Únicas nos Céus de Minas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Stratus Paraquedismo | Salto Duplo e Curso AFF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
+            font-family: 'Montserrat', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #050505;
             color: #fff;
-            line-height: 1.6;
             overflow-x: hidden;
-            background-color: #0a0a0a;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #4aa3ff, #1e4b7c);
-            border-radius: 4px;
-        }
-
-        /* Loading Animation */
-        .loader-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a0a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 1s ease, visibility 1s ease;
-        }
-
-        .loader {
-            width: 80px;
-            height: 80px;
-            border: 3px solid rgba(74, 163, 255, 0.1);
-            border-radius: 50%;
-            border-top-color: #4aa3ff;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
 
         /* Header */
         header {
             position: fixed;
             width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            padding: 20px 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        header.scrolled {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        .header-content {
+            padding: 25px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 1000;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
         }
 
-        /* Logo redonda - DESIGN OFICIAL */
+        header.scrolled {
+            background: rgba(0,0,0,0.95);
+            padding: 15px 8%;
+        }
+
+        /* Logo com a imagem que você tem */
         .logo {
             display: flex;
             align-items: center;
@@ -108,75 +51,51 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #4aa3ff, #1e4b7c);
+            background: linear-gradient(135deg, #ff2e2e, #cc0000);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 20px rgba(74, 163, 255, 0.3);
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .logo-circle span {
+            font-weight: 900;
+            font-size: 28px;
             color: white;
-            font-weight: 800;
-            font-size: 24px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            line-height: 1;
+            box-shadow: 0 0 20px rgba(255,46,46,0.3);
         }
 
         .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text h1 {
-            font-size: 28px;
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: 4px;
-            text-transform: uppercase;
-            color: white;
+            font-size: 24px;
             line-height: 1.2;
         }
 
         .logo-text span {
-            color: #4aa3ff;
             font-size: 12px;
-            font-weight: 300;
-            letter-spacing: 6px;
-            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #ff2e2e;
+            display: block;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
+        nav a {
+            color: #fff;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            margin-left: 40px;
             position: relative;
-            padding: 5px 0;
-            transition: color 0.3s;
+            font-weight: 600;
         }
 
-        .nav-links a::before {
-            content: '';
+        nav a::after {
+            content: "";
             position: absolute;
-            bottom: 0;
             left: 0;
+            bottom: -5px;
             width: 0;
             height: 2px;
-            background: #4aa3ff;
-            transition: width 0.3s ease;
+            background: #ff2e2e;
+            transition: 0.4s;
         }
 
-        .nav-links a:hover::before {
+        nav a:hover::after {
             width: 100%;
         }
 
@@ -184,192 +103,317 @@
         .hero {
             height: 100vh;
             position: relative;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            overflow: hidden;
         }
 
-        .hero-video {
+        .hero video {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -2;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
             z-index: -1;
+            filter: brightness(0.4);
         }
 
         .hero-content {
-            max-width: 1000px;
-            padding: 0 20px;
+            max-width: 900px;
             opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1.5s ease forwards;
+            transform: translateY(40px);
+            transition: 1.5s ease;
         }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero h1 {
+            font-size: 65px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            line-height: 1.2;
         }
 
-        .hero-subtitle {
-            font-size: 18px;
-            color: #4aa3ff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .hero h2 {
-            font-size: 80px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            text-transform: uppercase;
-        }
-
-        .hero h2 span {
-            color: #4aa3ff;
+        .hero h1 span {
+            color: #ff2e2e;
             display: block;
+            font-size: 40px;
             font-weight: 300;
-            font-size: 60px;
         }
 
         .hero p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            color: rgba(255,255,255,0.9);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Botões */
-        .btn-group {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 22px;
+            color: #ccc;
         }
 
         .btn {
-            padding: 18px 45px;
-            border-radius: 50px;
+            display: inline-block;
+            margin-top: 30px;
+            padding: 16px 45px;
+            background: #ff2e2e;
+            color: #fff;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
-            letter-spacing: 2px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
+            letter-spacing: 1px;
+            transition: 0.3s;
             border: none;
             cursor: pointer;
-            display: inline-block;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 14px;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #4aa3ff, #1e4b7c);
-            color: white;
-            box-shadow: 0 10px 30px rgba(74, 163, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(74, 163, 255, 0.5);
+        .btn:hover {
+            background: #cc0000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,46,46,0.4);
         }
 
         .btn-outline {
             background: transparent;
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(5px);
+            border: 2px solid #ff2e2e;
+            margin-left: 15px;
         }
 
         .btn-outline:hover {
-            border-color: #4aa3ff;
-            background: rgba(74, 163, 255, 0.1);
+            background: #ff2e2e;
+            border-color: #ff2e2e;
         }
 
-        /* Botão de Agendamento WhatsApp */
-        .btn-schedule {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        /* Seções */
+        section {
+            padding: 140px 10%;
+            opacity: 0;
+            transform: translateY(80px);
+            transition: 1.2s ease;
+        }
+
+        .section-title {
+            font-size: 46px;
+            margin-bottom: 60px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .section-title span {
+            color: #ff2e2e;
+        }
+
+        .dark {
+            background: #0c0c0c;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+
+        /* Cards */
+        .card {
+            background: #111;
+            padding: 50px 30px;
+            border: 1px solid #1f1f1f;
+            transition: 0.4s;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #ff2e2e;
+            box-shadow: 0 20px 40px rgba(255,46,46,0.2);
+        }
+
+        .price {
+            font-size: 48px;
+            color: #ff2e2e;
+            font-weight: 900;
+            margin: 20px 0;
+        }
+
+        .urgency {
+            color: #ff2e2e;
+            font-weight: 600;
+            margin: 20px 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Galeria */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 400px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+
+        /* Depoimentos */
+        .testimonial {
+            background: #111;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff2e2e;
+            border-radius: 0 20px 20px 0;
+        }
+
+        .testimonial p {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .testimonial strong {
+            color: #ff2e2e;
+        }
+
+        /* Localização */
+        .location-box {
+            background: #111;
+            padding: 60px;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid #1f1f1f;
+        }
+
+        .location-box h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .location-box h3 span {
+            color: #ff2e2e;
+        }
+
+        .location-box p {
+            color: #ccc;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .location-icon {
+            width: 60px;
+            height: 60px;
+            background: #ff2e2e;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            margin: 20px auto;
+            font-size: 24px;
         }
 
-        .btn-schedule i {
-            font-size: 20px;
+        /* Footer */
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 60px;
+            color: #777;
         }
 
-        .btn-schedule:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5);
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
-        /* WhatsApp Button Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background: linear-gradient(135deg, #25D366, #128C7E);
+        .footer-col h4 {
+            color: #ff2e2e;
+            margin-bottom: 20px;
+        }
+
+        .footer-col a {
+            color: #777;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #ff2e2e;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #ff2e2e;
+            transform: translateY(-3px);
+        }
+
+        /* WhatsApp */
+        .whatsapp {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            background: #25D366;
             width: 70px;
             height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #fff;
             font-size: 30px;
             text-decoration: none;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+            transition: 0.4s;
             z-index: 99;
-            border: 2px solid rgba(255,255,255,0.2);
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        .whatsapp:hover {
+            transform: scale(1.15) rotate(5deg);
+            background: #20b859;
         }
 
-        .whatsapp-float .tooltip {
+        .whatsapp .tooltip {
             position: absolute;
             right: 80px;
             background: rgba(0,0,0,0.8);
@@ -379,754 +423,236 @@
             font-size: 14px;
             white-space: nowrap;
             opacity: 0;
+            transition: 0.3s;
             pointer-events: none;
-            transition: all 0.3s;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .whatsapp-float:hover .tooltip {
+        .whatsapp:hover .tooltip {
             opacity: 1;
             right: 90px;
         }
 
-        /* Seção de Serviços */
-        .services {
-            padding: 120px 0;
-            background: #0a0a0a;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h3 {
-            font-size: 18px;
-            color: #4aa3ff;
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .section-title h2 {
-            font-size: 48px;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .section-title h2 span {
-            color: #4aa3ff;
-        }
-
-        .section-title p {
-            color: rgba(255,255,255,0.6);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .service-card {
-            position: relative;
-            height: 600px;
-            border-radius: 30px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .service-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .service-card:hover .service-image {
-            transform: scale(1.1);
-        }
-
-        .service-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 50%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 40px;
-            transition: all 0.5s;
-        }
-
-        .service-card:hover .service-overlay {
-            background: linear-gradient(to top, rgba(74,163,255,0.95) 0%, rgba(0,0,0,0.5) 100%);
-        }
-
-        .service-content {
-            transform: translateY(30px);
-            transition: transform 0.5s;
-        }
-
-        .service-card:hover .service-content {
-            transform: translateY(0);
-        }
-
-        .service-content h3 {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: white;
-            text-transform: uppercase;
-        }
-
-        .service-content p {
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s 0.1s;
-        }
-
-        .service-card:hover .service-content p {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 2px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s 0.2s;
-            background: rgba(255,255,255,0.2);
-            padding: 12px 25px;
-            border-radius: 50px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .service-card:hover .service-btn {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-btn i {
-            transition: transform 0.3s;
-        }
-
-        .service-btn:hover i {
-            transform: translateX(5px);
-        }
-
-        /* Seção Sobre com Logo */
-        .about-section {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #0a1a2a, #0a0a0a);
-            position: relative;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .about-logo-circle {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4aa3ff, #1e4b7c);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 20px 40px rgba(74, 163, 255, 0.3);
-            border: 4px solid rgba(255,255,255,0.2);
-        }
-
-        .about-logo-circle span {
-            color: white;
-            font-weight: 800;
-            font-size: 60px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            line-height: 1;
-        }
-
-        .about-logo h2 {
-            font-size: 48px;
-            font-weight: 800;
-            color: white;
-            text-transform: uppercase;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        .about-logo h2 span {
-            color: #4aa3ff;
-            display: block;
-            font-size: 24px;
-            font-weight: 300;
-            letter-spacing: 8px;
-        }
-
-        .about-content h3 {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 30px;
-            color: white;
-        }
-
-        .about-content h3 span {
-            color: #4aa3ff;
-        }
-
-        .about-content p {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-
-        /* Localização */
-        .location-section {
-            padding: 120px 0;
-            background: #0a0a0a;
-        }
-
-        .location-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .location-info h2 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 30px;
-            color: white;
-            text-transform: uppercase;
-        }
-
-        .location-info h2 span {
-            color: #4aa3ff;
-            display: block;
-            font-size: 24px;
-            font-weight: 300;
-            letter-spacing: 4px;
-        }
-
-        .location-detail {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .location-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #4aa3ff, #1e4b7c);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .map-container {
-            position: relative;
-            height: 450px;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Footer */
-        footer {
-            background: #050505;
-            padding: 80px 0 30px;
-            position: relative;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .footer-logo-circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4aa3ff, #1e4b7c);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-logo-circle span {
-            color: white;
-            font-weight: 800;
-            font-size: 20px;
-        }
-
-        .footer-logo-text h3 {
-            font-size: 20px;
-            font-weight: 800;
-            color: white;
-            line-height: 1.2;
-        }
-
-        .footer-logo-text span {
-            color: #4aa3ff;
-            font-size: 10px;
-            letter-spacing: 4px;
-        }
-
-        .footer-links h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            color: #4aa3ff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 15px;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #4aa3ff;
-        }
-
-        .footer-contact p {
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-contact i {
-            color: #4aa3ff;
-            width: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .social-links a:hover {
-            background: #4aa3ff;
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.4);
-            font-size: 14px;
-        }
-
-        @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .location-grid,
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Animações */
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
+            header {
+                padding: 15px 5%;
+            }
+            nav {
                 display: none;
             }
-            .hero h2 {
-                font-size: 40px;
+            .hero h1 {
+                font-size: 38px;
             }
-            .hero h2 span {
-                font-size: 30px;
+            .hero h1 span {
+                font-size: 24px;
             }
-            .services-grid {
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
-            .logo-circle {
-                width: 50px;
-                height: 50px;
+            section {
+                padding: 80px 5%;
             }
-            .logo-circle span {
-                font-size: 20px;
-            }
-            .logo-text h1 {
-                font-size: 24px;
+            .section-title {
+                font-size: 32px;
             }
         }
     </style>
 </head>
-<body>
-    <!-- Loading Animation -->
-    <div class="loader-wrapper" id="loader">
-        <div class="loader"></div>
-    </div>
 
-    <!-- Header -->
+<body>
     <header id="header">
-        <div class="container">
-            <div class="header-content">
-                <!-- Logo redonda com design oficial -->
-                <div class="logo">
-                    <div class="logo-circle">
-                        <span>S</span>
-                    </div>
-                    <div class="logo-text">
-                        <h1>STRATUS</h1>
-                        <span>PARAQUEDISMO</span>
-                    </div>
-                </div>
-                <div class="nav-links">
-                    <a href="#home">Início</a>
-                    <a href="#services">Serviços</a>
-                    <a href="#about">Sobre</a>
-                    <a href="#location">Localização</a>
-                    <a href="#contact">Contato</a>
-                    <a href="https://instagram.com/daillytaina" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
+        <div class="logo">
+            <div class="logo-circle">S</div>
+            <div class="logo-text">
+                STRATUS
+                <span>PARAQUEDISMO</span>
             </div>
         </div>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#valores">Valores</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#depoimentos">Depoimentos</a>
+            <a href="#localizacao">Localização</a>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="https://player.vimeo.com/external/370331467.sd.mp4?s=90f0ab3e5b0d6e9c1e5c3b0c5f5b5f5b5f5b5f5b&profile_id=164" type="video/mp4">
+    <section class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="https://cdn.coverr.co/videos/coverr-skydiving-over-the-clouds-1575/1080p.mp4" type="video/mp4">
         </video>
-        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-subtitle">Stratus Paraquedismo</div>
-            <h2>TOQUE O CÉU<br><span>COM A GENTE</span></h2>
-            <p>Salto duplo, balonismo e cursos em Jaboticatubas - Minas Gerais</p>
-            <div class="btn-group">
-                <a href="#services" class="btn btn-primary">Nossos Serviços</a>
-                <a href="#" class="btn btn-schedule" onclick="scheduleWhatsApp()">
-                    <i class="fab fa-whatsapp"></i>
-                    AGENDAR AGORA
+            <h1>EXPERIÊNCIA QUE<br><span>DESAFIA O CÉU</span></h1>
+            <p>Salto Duplo & Curso AFF • Jaboticatubas - MG</p>
+            <div>
+                <a href="https://wa.me/5531996115628?text=Olá! Quero agendar um salto na Stratus Paraquedismo." class="btn">
+                    <i class="fab fa-whatsapp"></i> AGENDAR AGORA
+                </a>
+                <a href="#sobre" class="btn btn-outline">CONHECER</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+        <h2 class="section-title">SOBRE A <span>STRATUS</span></h2>
+        <p style="text-align:center; max-width:800px; margin:auto; color:#ccc; font-size:18px;">
+            A Stratus oferece experiências exclusivas de paraquedismo com segurança máxima, 
+            instrutores certificados e estrutura profissional. Cada salto é planejado para 
+            entregar emoção, adrenalina e uma memória inesquecível nos céus de Minas Gerais.
+        </p>
+    </section>
+
+    <!-- Valores -->
+    <section id="valores" class="dark">
+        <h2 class="section-title">INVESTIMENTO</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>SALTO DUPLO</h3>
+                <div class="price">R$ 790</div>
+                <p>Salto a 4.000 metros com instrutor certificado + equipamentos completos.</p>
+                <p style="color:#777; margin:15px 0;">Parcelamento em até 12x</p>
+                <div class="urgency">🚀 VAGAS LIMITADAS</div>
+                <a href="https://wa.me/5531996115628?text=Olá! Quero agendar um Salto Duplo na Stratus Paraquedismo." class="btn">
+                    <i class="fab fa-whatsapp"></i> AGENDAR
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>CURSO AFF</h3>
+                <div class="price">R$ 7.900</div>
+                <p>Formação completa Accelerated Free Fall com instrutores certificados.</p>
+                <p style="color:#777; margin:15px 0;">Parcelamento em até 12x</p>
+                <div class="urgency">🎯 TURMAS REDUZIDAS</div>
+                <a href="https://wa.me/5531996115628?text=Olá! Quero informações sobre o Curso AFF da Stratus Paraquedismo." class="btn">
+                    <i class="fab fa-whatsapp"></i> SAIBA MAIS
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section with Logo -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-logo">
-                    <div class="about-logo-circle">
-                        <span>S</span>
-                    </div>
-                    <h2>STRATUS<br><span>PARAQUEDISMO</span></h2>
-                </div>
-                <div class="about-content">
-                    <h3>SOBRE A <span>STRATUS</span></h3>
-                    <p>A Stratus Paraquedismo nasceu para realizar sonhos e proporcionar experiências únicas nos céus de Minas Gerais. Localizada em Jaboticatubas, a apenas 60 km de Belo Horizonte, nossa estrutura foi pensada para oferecer segurança, conforto e a melhor vibe para você e sua família.</p>
-                    <p>Com uma equipe de instrutores altamente qualificados e equipamentos de última geração, garantimos que sua experiência seja inesquecível. Seja no salto duplo, no passeio de balão ou nos cursos de formação, a Stratus está pronta para te receber.</p>
-                    <a href="#" class="btn btn-schedule" style="margin-top: 20px;" onclick="scheduleWhatsApp()">
-                        <i class="fab fa-whatsapp"></i>
-                        FALE CONOSCO
-                    </a>
-                </div>
+    <!-- Galeria -->
+    <section id="galeria">
+        <h2 class="section-title">GALERIA</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Salto duplo">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1478827387698-1527785b1e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Paraquedas aberto">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Vista aérea">
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h3>STRATUS</h3>
-                <h2>NOSSOS <span>SERVIÇOS</span></h2>
-                <p>Escolha a aventura que mais combina com você</p>
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="dark">
+        <h2 class="section-title">DEPOIMENTOS</h2>
+        <div style="max-width: 800px; margin: auto;">
+            <div class="testimonial">
+                <p>"Experiência surreal! Equipe extremamente profissional, me senti seguro do início ao fim. Recomendo demais!"</p>
+                <strong>— Rafael Silva</strong>
             </div>
-            <div class="services-grid">
-                <!-- Salto Duplo -->
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1542615296413-c3f40cd4f207?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')"></div>
-                    <div class="service-overlay">
-                        <div class="service-content">
-                            <h3>SALTO DUPLO</h3>
-                            <p>Salte com um instrutor experiente e sinta a adrenalina de voar a 12.000 pés de altitude.</p>
-                            <a href="#" class="service-btn" onclick="scheduleWhatsApp('Salto Duplo')">
-                                AGENDAR <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Passeio de Balão -->
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')"></div>
-                    <div class="service-overlay">
-                        <div class="service-content">
-                            <h3>PASSEIO DE BALÃO</h3>
-                            <p>Explore novos horizontes com um passeio de balão ao amanhecer sobre Jaboticatubas.</p>
-                            <a href="#" class="service-btn" onclick="scheduleWhatsApp('Passeio de Balão')">
-                                AGENDAR <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Curso de Paraquedismo -->
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1512138663481-77a2569a7fe3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')"></div>
-                    <div class="service-overlay">
-                        <div class="service-content">
-                            <h3>CURSOS</h3>
-                            <p>Aprenda a voar com os melhores instrutores da América Latina.</p>
-                            <a href="#" class="service-btn" onclick="scheduleWhatsApp('Curso de Paraquedismo')">
-                                AGENDAR <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="testimonial">
+                <p>"Melhor decisão da minha vida. Segurança total e uma vista incrível. Já quero repetir!"</p>
+                <strong>— Amanda Costa</strong>
+            </div>
+            <div class="testimonial">
+                <p>"Instrutores muito experientes e equipamentos novos. A Stratus é referência em paraquedismo."</p>
+                <strong>— Pedro Henrique</strong>
             </div>
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section class="location-section" id="location">
-        <div class="container">
-            <div class="location-grid">
-                <div class="location-info">
-                    <h2>ONDE <span>ESTAMOS</span></h2>
-                    <div class="location-detail">
-                        <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <h4>Endereço</h4>
-                            <p>Fazenda Paraíso, Zona Rural<br>Jaboticatubas, Minas Gerais<br>CEP: 35830-000</p>
-                        </div>
-                    </div>
-                    <div class="location-detail">
-                        <div class="location-icon"><i class="fas fa-clock"></i></div>
-                        <div>
-                            <h4>Horário de Funcionamento</h4>
-                            <p>Quinta a Segunda: 08h às 18h<br>Finais de semana e feriados</p>
-                        </div>
-                    </div>
-                    <div class="location-detail">
-                        <div class="location-icon"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <h4>Contato Direto</h4>
-                            <p>+55 31 99611-5628<br>contato@stratusparaquedismo.com.br</p>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-schedule" style="margin-top: 20px;" onclick="scheduleWhatsApp()">
-                        <i class="fab fa-whatsapp"></i>
-                        AGENDAR POR WHATSAPP
-                    </a>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15075.123456789!2d-43.744005!3d-19.513889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa5b4b3c1f3b3b3%3A0x3b3b3b3b3b3b3b!2sJaboticatubas%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+    <!-- Localização -->
+    <section id="localizacao">
+        <div class="location-box">
+            <div class="location-icon">
+                <i class="fas fa-map-marker-alt"></i>
             </div>
+            <h3>ONDE <span>ESTAMOS</span></h3>
+            <p><strong>Jaboticatubas - Minas Gerais</strong></p>
+            <p>Fazenda Paraíso, Zona Rural</p>
+            <p>Apenas 60 km de Belo Horizonte</p>
+            <a href="https://wa.me/5531996115628?text=Olá! Quero mais informações sobre a localização da Stratus Paraquedismo." class="btn" style="margin-top: 30px;">
+                <i class="fab fa-whatsapp"></i> COMO CHEGAR
+            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="footer-logo-circle">
-                        <span>S</span>
-                    </div>
-                    <div class="footer-logo-text">
-                        <h3>STRATUS</h3>
-                        <span>PARAQUEDISMO</span>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <a href="#home">Início</a>
-                    <a href="#services">Serviços</a>
-                    <a href="#about">Sobre Nós</a>
-                    <a href="#location">Localização</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Serviços</h4>
-                    <a href="#" onclick="scheduleWhatsApp('Salto Duplo')">Salto Duplo</a>
-                    <a href="#" onclick="scheduleWhatsApp('Passeio de Balão')">Passeio de Balão</a>
-                    <a href="#" onclick="scheduleWhatsApp('Curso de Paraquedismo')">Cursos</a>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contato</h4>
-                    <p><i class="fab fa-whatsapp"></i> +55 31 99611-5628</p>
-                    <p><i class="fab fa-instagram"></i> @daillytaina</p>
-                    <p><i class="far fa-envelope"></i> contato@stratus.com</p>
-                    <div class="social-links">
-                        <a href="https://instagram.com/daillytaina" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/5531996115628" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>STRATUS</h4>
+                <p style="color:#777;">Paraquedismo e Balonismo em Minas Gerais</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/daillytaina" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5531996115628" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>© 2026 Stratus Paraquedismo. Todos os direitos reservados.</p>
+            <div class="footer-col">
+                <h4>LINKS RÁPIDOS</h4>
+                <a href="#sobre">Sobre</a>
+                <a href="#valores">Valores</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#depoimentos">Depoimentos</a>
+            </div>
+            <div class="footer-col">
+                <h4>CONTATO</h4>
+                <a href="https://wa.me/5531996115628">📱 (31) 99611-5628</a>
+                <a href="https://instagram.com/daillytaina">📷 @daillytaina</a>
+                <p>📍 Jaboticatubas - MG</p>
             </div>
         </div>
+        <p style="margin-top: 40px;">© 2026 Stratus Paraquedismo - Todos os direitos reservados</p>
     </footer>
 
-    <!-- WhatsApp Button Float -->
-    <a href="#" class="whatsapp-float" onclick="scheduleWhatsApp()">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5531996115628?text=Olá! Quero agendar um salto na Stratus Paraquedismo." class="whatsapp">
         <i class="fab fa-whatsapp"></i>
         <span class="tooltip">Agende agora!</span>
     </a>
 
     <script>
-        // Função de agendamento via WhatsApp
-        function scheduleWhatsApp(servico = '') {
-            const phone = '5531996115628';
-            let message = '';
-            
-            const now = new Date();
-            const hour = now.getHours();
-            let greeting = '';
-            
-            if (hour < 12) greeting = 'Bom dia';
-            else if (hour < 18) greeting = 'Boa tarde';
-            else greeting = 'Boa noite';
-            
-            if (servico) {
-                message = `${greeting}! Gostaria de agendar o serviço de *${servico}* na Stratus Paraquedismo. Poderia me passar mais informações sobre valores e disponibilidade?`;
-            } else {
-                message = `${greeting}! Gostaria de agendar uma experiência na Stratus Paraquedismo. Poderia me ajudar com informações sobre os serviços e disponibilidade?`;
-            }
-            
-            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        }
+        // Animação de scroll
+        const elements = document.querySelectorAll("section, .hero-content");
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, { threshold: 0.2 });
 
-        // Loading animation
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loader').style.opacity = '0';
-                document.getElementById('loader').style.visibility = 'hidden';
-            }, 1500);
-        });
+        elements.forEach(el => observer.observe(el));
 
         // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        window.addEventListener("scroll", () => {
+            document.getElementById("header").classList.toggle("scrolled", window.scrollY > 50);
         });
 
-        // Smooth scroll
+        // Smooth scroll para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        });
-
-        // Animação de entrada dos elementos
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .location-detail, .about-content, .about-logo').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(50px)';
-            el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-            observer.observe(el);
         });
     </script>
 </body>
