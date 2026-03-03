@@ -4,89 +4,255 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stratus Paraquedismo</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
-body{background:linear-gradient(to bottom,#eaf8ff,#ffffff);color:#003049;overflow-x:hidden;}
 
-/* MENU */
-header{
-position:fixed;top:0;width:100%;
-display:flex;justify-content:space-between;align-items:center;
-padding:18px 8%;z-index:1000;
-background:rgba(255,255,255,0.8);
-backdrop-filter:blur(10px);
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
-header img{height:55px;}
-nav a{margin-left:25px;text-decoration:none;color:#003049;font-weight:500;}
-nav a:hover{color:#00b4d8;}
+
+body{
+background:linear-gradient(to bottom,#eaf8ff,#ffffff);
+color:#003049;
+overflow-x:hidden;
+}
+
+/* ===== CABEÇALHO PREMIUM ===== */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(12px);
+box-shadow:0 4px 20px rgba(0,0,0,0.05);
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+height:50px;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:#003049;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#00b4d8;
+}
+
+/* MENU MOBILE */
+.menu-toggle{
+display:none;
+flex-direction:column;
+cursor:pointer;
+}
+
+.menu-toggle span{
+height:3px;
+width:25px;
+background:#003049;
+margin:4px 0;
+border-radius:5px;
+}
 
 /* HERO */
-.carrossel{position:relative;width:100%;height:65vh;overflow:hidden;margin-top:90px;}
-.slides{display:flex;transition:transform 1s ease-in-out;height:100%;}
-.slide{min-width:100%;height:65vh;}
-.slide img{width:100%;height:100%;object-fit:cover;object-position:center;}
-.overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
-.overlay h1{font-size:3rem;color:#0077b6;}
-.botao{
-margin-top:20px;padding:14px 35px;background:#00b4d8;color:white;
-text-decoration:none;border-radius:40px;display:inline-block;transition:0.3s;
+.carrossel{
+margin-top:90px;
+height:65vh;
+overflow:hidden;
+position:relative;
 }
-.botao:hover{background:#0077b6;transform:scale(1.05);}
+
+.slides{
+display:flex;
+height:100%;
+transition:transform 1s ease-in-out;
+}
+
+.slide{
+min-width:100%;
+height:100%;
+}
+
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center;
+}
+
+.overlay{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+}
+
+.overlay h1{
+font-size:3rem;
+color:#0077b6;
+}
+
+.botao{
+margin-top:20px;
+padding:14px 35px;
+background:#00b4d8;
+color:white;
+text-decoration:none;
+border-radius:40px;
+display:inline-block;
+transition:0.3s;
+}
+
+.botao:hover{
+background:#0077b6;
+transform:scale(1.05);
+}
 
 /* SEÇÕES */
-section{padding:100px 10%;}
-h2{text-align:center;font-size:2.3rem;margin-bottom:50px;color:#0077b6;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+section{
+padding:100px 10%;
+}
+
+h2{
+text-align:center;
+font-size:2.3rem;
+margin-bottom:50px;
+color:#0077b6;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
 .card{
-background:white;padding:30px;border-radius:20px;
+background:white;
+padding:30px;
+border-radius:20px;
 box-shadow:0 15px 40px rgba(0,0,0,0.08);
 }
-.preco{font-size:1.6rem;color:#00b4d8;font-weight:700;margin:15px 0;}
+
+.preco{
+font-size:1.6rem;
+color:#00b4d8;
+font-weight:700;
+margin:15px 0;
+}
 
 /* ACCORDION */
 details{
-margin-top:15px;background:#f4fbff;
-padding:15px;border-radius:15px;
+margin-top:15px;
+background:#f4fbff;
+padding:20px;
+border-radius:15px;
 }
-details summary{font-weight:600;color:#0077b6;cursor:pointer;}
+
+details summary{
+font-weight:600;
+color:#0077b6;
+cursor:pointer;
+margin-bottom:10px;
+}
 
 /* FAQ */
-.faq details{margin-bottom:15px;}
-
-/* MAPA */
-.mapa iframe{
-width:100%;height:350px;border-radius:20px;border:none;
-}
-
-/* FOOTER */
-footer{
-background:#0077b6;color:white;text-align:center;padding:40px;
+.faq details{
+margin-bottom:20px;
 }
 
 /* WHATSAPP */
 .whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25D366;width:60px;height:60px;border-radius:50%;
-display:flex;align-items:center;justify-content:center;
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
 box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
-.whatsapp svg{width:30px;fill:white;}
+
+.whatsapp svg{
+width:30px;
+fill:white;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+
+nav{
+position:absolute;
+top:80px;
+right:0;
+background:white;
+flex-direction:column;
+width:200px;
+padding:20px;
+display:none;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+nav.active{
+display:flex;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+}
+
 </style>
 </head>
 <body>
 
 <header>
+<div class="logo">
 <img src="IMG_1249.jpeg">
-<nav>
+</div>
+
+<nav id="menu">
 <a href="#">Início</a>
 <a href="#agendamentos">Agendamentos</a>
 <a href="#faq">Perguntas</a>
 <a href="#orientacoes">Orientações</a>
 <a href="#contato">Contato</a>
 </nav>
+
+<div class="menu-toggle" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
 </header>
 
 <div class="carrossel">
@@ -103,6 +269,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 
 <section id="agendamentos">
 <h2>Agendamentos</h2>
+
 <div class="cards">
 
 <div class="card">
@@ -122,82 +289,47 @@ box-shadow:0 10px 25px rgba(0,0,0,0.2);
 <div class="preco">A partir de R$ 1.890,00</div>
 
 <details>
-<summary>Saiba mais sobre cada nível</summary>
+<summary>Ver detalhes dos níveis</summary>
 
-<p><strong>Nível 1:</strong> Prática de comando.</p>
-<p><strong>Nível 2:</strong> Curvas para ambos os lados.</p>
-<p><strong>Nível 3:</strong> Voo Solo (último salto com dois instrutores).</p>
-<p><strong>Nível 4:</strong> Curvas 90 graus.</p>
-<p><strong>Nível 5:</strong> Curvas 360 graus.</p>
-<p><strong>Nível 6:</strong> Saída solo + Back Loop + Track.</p>
-<p><strong>Nível 7:</strong> Meia série de estilo.</p>
+<p><strong>Nível 1 - Prática de comando</strong><br>
+Aluno faz as simulações do comando do paraquedas durante a queda livre.</p>
+
+<p><strong>Nível 2 - Curvas</strong><br>
+Aluno aprende a executar curvas para ambos os lados.</p>
+
+<p><strong>Nível 3 - "Voo Solo"</strong><br>
+É o nível em que os 2 instrutores irão soltar o aluno pela primeira vez, para voar sozinho. Este é o último salto com 2 instrutores.</p>
+
+<p><strong>Nível 4 - Curvas 90 Graus</strong><br>
+O aluno faz curvas de 90 graus para a esquerda e direita voando solto. O instrutor apenas fica próximo ao aluno, auxiliando-o também como referência em queda livre.</p>
+
+<p><strong>Nível 5 - Curvas de 360 graus</strong><br>
+O aluno faz curvas de 360 graus para direita e esquerda voando solto. O instrutor apenas fica próximo ao aluno.</p>
+
+<p><strong>Nível 6 - Saída Solo + Back Loop</strong><br>
+O aluno faz a saída solo, back loop (movimento igual a cambalhota) e track (separação horizontal em relação ao instrutor antes do comando do paraquedas).</p>
+
+<p><strong>Nível 7 - "Meia série"</strong><br>
+O aluno faz a saída de mergulho e inicia uma sequência de movimentos controlados: front-loop, back-loop, curvas de 360 e track. Este nível é chamado Meia série de estilo.</p>
 
 </details>
 
-<a class="botao" href="https://wa.me/5531996115628?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20Curso%20AFF.">Saber Mais</a>
+<a class="botao" href="https://wa.me/5531996115628?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20Curso%20AFF.">Agendar Curso AFF</a>
 
 </div>
+
 </div>
 </section>
-
-<section id="faq" class="faq">
-<h2>Perguntas Frequentes</h2>
-
-<details><summary>Existe transporte?</summary>
-<p>Viação Serro ou Saritur saem da Rodoviária de BH e param em frente ao aeroporto. 18km antes da Serra do Cipó-MG. Coloque Stratus Paraquedismo no GPS.</p>
-</details>
-
-<details><summary>O tempo está chuvoso, devo ir?</summary>
-<p>Sim, sempre surgem janelas seguras para salto.</p>
-</details>
-
-<details><summary>Há queimadas na região?</summary>
-<p>Não interferem nos saltos.</p>
-</details>
-
-<details><summary>Posso levar familiares?</summary>
-<p>Sim, temos área com restaurante/lanchonete.</p>
-</details>
-
-<details><summary>Precisa ter experiência?</summary>
-<p>Não. Você recebe instruções minutos antes do salto.</p>
-</details>
-
-</section>
-
-<section id="orientacoes">
-<h2>Orientações Salto Tandem</h2>
-
-<details><summary>Ver orientações completas</summary>
-<p>Para saltos tandem não é necessário curso. Limite de peso 90kg. Use roupas confortáveis e tênis. 
-Reserva de R$200 via PIX CNPJ 40.398.015/0001-74 (Estratosfera Esportes Aéreos). 
-Funcionamos no Aeroporto da Serra do Cipó MG-010 KM 79,5. 
-Cancelamentos seguem política descrita. BOM SALTO!</p>
-</details>
-
-</section>
-
-<section id="contato">
-<h2>Localização</h2>
-<div class="mapa">
-<iframe src="https://maps.google.com/maps?q=Serra%20do%20Cipó%20MG&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-</div>
-</section>
-
-<footer>
-© 2026 Stratus Paraquedismo
-</footer>
-
-<a class="whatsapp" href="https://wa.me/5531996115628" target="_blank">
-<svg viewBox="0 0 32 32">
-<path d="M16 .396C7.163.396 0 7.559 0 16.396c0 2.893.756 5.72 2.188 8.207L0 32l7.614-2.16a15.926 15.926 0 0 0 8.386 2.35h.006c8.837 0 16-7.163 16-16S24.837.396 16 .396z"/>
-</svg>
-</a>
 
 <script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+
 let index=0;
 const slides=document.querySelector(".slides");
 const total=document.querySelectorAll(".slide").length;
+
 setInterval(()=>{
 index++;
 if(index>=total){index=0;}
