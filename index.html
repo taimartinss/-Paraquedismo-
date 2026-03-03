@@ -4,249 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stratus Paraquedismo</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+body{background:linear-gradient(to bottom,#eaf8ff,#ffffff);color:#003049;overflow-x:hidden;}
 
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:linear-gradient(to bottom,#eaf8ff,#ffffff);
-color:#003049;
-overflow-x:hidden;
-}
-
-/* MENU PREMIUM */
+/* MENU */
 header{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 8%;
-transition:0.4s;
-z-index:1000;
-backdrop-filter:blur(10px);
-}
-
-header.ativo{
+position:fixed;top:0;width:100%;
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 8%;z-index:1000;
 background:rgba(255,255,255,0.8);
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
+backdrop-filter:blur(10px);
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
+header img{height:55px;}
+nav a{margin-left:25px;text-decoration:none;color:#003049;font-weight:500;}
+nav a:hover{color:#00b4d8;}
 
-header img{
-height:55px;
-}
-
-nav a{
-margin-left:25px;
-text-decoration:none;
-color:#003049;
-font-weight:500;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#00b4d8;
-}
-
-/* HERO CARROSSEL */
-.carrossel{
-position:relative;
-width:100%;
-height:65vh;
-overflow:hidden;
-margin-top:80px;
-}
-
-.slides{
-display:flex;
-transition:transform 1s ease-in-out;
-height:100%;
-}
-
-.slide{
-min-width:100%;
-height:65vh;
-position:relative;
-}
-
-.slide img{
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center;
-}
-
-.slide::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(to top,rgba(255,255,255,0.6),rgba(255,255,255,0.2));
-}
-
-.overlay{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-z-index:10;
-}
-
-.overlay h1{
-font-size:3rem;
-color:#0077b6;
-}
-
-.overlay p{
-margin-top:10px;
-font-size:1.1rem;
-}
-
+/* HERO */
+.carrossel{position:relative;width:100%;height:65vh;overflow:hidden;margin-top:90px;}
+.slides{display:flex;transition:transform 1s ease-in-out;height:100%;}
+.slide{min-width:100%;height:65vh;}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
+.overlay h1{font-size:3rem;color:#0077b6;}
 .botao{
-margin-top:20px;
-padding:14px 35px;
-background:#00b4d8;
-color:white;
-text-decoration:none;
-border-radius:40px;
-display:inline-block;
-transition:0.3s;
+margin-top:20px;padding:14px 35px;background:#00b4d8;color:white;
+text-decoration:none;border-radius:40px;display:inline-block;transition:0.3s;
 }
-
-.botao:hover{
-background:#0077b6;
-transform:scale(1.05);
-}
+.botao:hover{background:#0077b6;transform:scale(1.05);}
 
 /* SEÇÕES */
-section{
-padding:100px 10%;
-opacity:0;
-transform:translateY(40px);
-transition:0.8s;
-}
-
-section.ativo{
-opacity:1;
-transform:translateY(0);
-}
-
-h2{
-text-align:center;
-font-size:2.3rem;
-margin-bottom:50px;
-color:#0077b6;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.card, .depoimento{
-background:rgba(255,255,255,0.9);
-backdrop-filter:blur(8px);
-padding:30px;
-border-radius:20px;
+section{padding:100px 10%;}
+h2{text-align:center;font-size:2.3rem;margin-bottom:50px;color:#0077b6;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+.card{
+background:white;padding:30px;border-radius:20px;
 box-shadow:0 15px 40px rgba(0,0,0,0.08);
-transition:0.3s;
 }
+.preco{font-size:1.6rem;color:#00b4d8;font-weight:700;margin:15px 0;}
 
-.card:hover, .depoimento:hover{
-transform:translateY(-8px);
-}
-
-.preco{
-font-size:1.6rem;
-color:#00b4d8;
-font-weight:700;
-margin:15px 0;
-}
-
-.nota{
-text-align:center;
-font-size:1.5rem;
-margin-bottom:30px;
-color:#ffc107;
-}
-
-/* ACCORDION AFF */
+/* ACCORDION */
 details{
-margin-top:15px;
-cursor:pointer;
+margin-top:15px;background:#f4fbff;
+padding:15px;border-radius:15px;
 }
+details summary{font-weight:600;color:#0077b6;cursor:pointer;}
 
-details summary{
-font-weight:600;
-color:#0077b6;
-margin-bottom:10px;
-}
-
-/* GALERIA */
-.galeria{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.galeria img{
-width:100%;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
+/* FAQ */
+.faq details{margin-bottom:15px;}
 
 /* MAPA */
 .mapa iframe{
-width:100%;
-height:350px;
-border-radius:20px;
-border:none;
+width:100%;height:350px;border-radius:20px;border:none;
 }
 
 /* FOOTER */
 footer{
-background:#0077b6;
-color:white;
-text-align:center;
-padding:40px;
+background:#0077b6;color:white;text-align:center;padding:40px;
 }
 
 /* WHATSAPP */
 .whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
+position:fixed;bottom:20px;right:20px;
+background:#25D366;width:60px;height:60px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
 box-shadow:0 10px 25px rgba(0,0,0,0.2);
-z-index:1000;
 }
-
-.whatsapp svg{
-width:30px;
-fill:white;
-}
-
+.whatsapp svg{width:30px;fill:white;}
 </style>
 </head>
 <body>
@@ -256,9 +83,8 @@ fill:white;
 <nav>
 <a href="#">Início</a>
 <a href="#agendamentos">Agendamentos</a>
-<a href="#sobre">Sobre</a>
-<a href="#depoimentos">Depoimentos</a>
-<a href="#galeria">Galeria</a>
+<a href="#faq">Perguntas</a>
+<a href="#orientacoes">Orientações</a>
 <a href="#contato">Contato</a>
 </nav>
 </header>
@@ -271,7 +97,6 @@ fill:white;
 </div>
 <div class="overlay">
 <h1>Stratus Paraquedismo</h1>
-<p>Experiência, segurança e adrenalina na Serra do Cipó - MG</p>
 <a href="#agendamentos" class="botao">Agendar Agora</a>
 </div>
 </div>
@@ -283,68 +108,73 @@ fill:white;
 <div class="card">
 <h3>Salto Tandem VIP</h3>
 <div class="preco">R$ 1.590,00</div>
-<p>GoPro + Cameraman exclusivo. Vídeo editado incluso.</p>
-<a class="botao" href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Salto%20Tandem%20VIP.%20Poderia%20me%20informar%20datas%20e%20disponibilidade?">Agendar VIP</a>
+<a class="botao" href="https://wa.me/5531996115628?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20Salto%20Tandem%20VIP.">Agendar VIP</a>
 </div>
 
 <div class="card">
 <h3>Salto Tandem Handycam</h3>
 <div class="preco">R$ 1.180,00</div>
-<p>Filmagem com GoPro acoplada ao instrutor.</p>
-<a class="botao" href="https://wa.me/SEUNUMERO?text=Olá!%20Tenho%20interesse%20no%20Salto%20Tandem%20Handycam.%20Poderia%20me%20passar%20mais%20informações?">Agendar Handycam</a>
+<a class="botao" href="https://wa.me/5531996115628?text=Olá!%20Tenho%20interesse%20no%20Salto%20Tandem%20Handycam.">Agendar Handycam</a>
 </div>
 
 <div class="card">
 <h3>Curso AFF</h3>
 <div class="preco">A partir de R$ 1.890,00</div>
-<p>Formação completa para se tornar paraquedista.</p>
+
 <details>
-<summary>Saiba mais sobre os níveis</summary>
-<p>Nível 1 a 7: evolução progressiva com instrutores, técnicas de estabilidade, navegação e pouso.</p>
+<summary>Saiba mais sobre cada nível</summary>
+
+<p><strong>Nível 1:</strong> Prática de comando.</p>
+<p><strong>Nível 2:</strong> Curvas para ambos os lados.</p>
+<p><strong>Nível 3:</strong> Voo Solo (último salto com dois instrutores).</p>
+<p><strong>Nível 4:</strong> Curvas 90 graus.</p>
+<p><strong>Nível 5:</strong> Curvas 360 graus.</p>
+<p><strong>Nível 6:</strong> Saída solo + Back Loop + Track.</p>
+<p><strong>Nível 7:</strong> Meia série de estilo.</p>
+
 </details>
-<a class="botao" href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20Curso%20AFF%20e%20datas%20disponíveis.">Saber Mais</a>
-</div>
 
-</div>
+<a class="botao" href="https://wa.me/5531996115628?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20Curso%20AFF.">Saber Mais</a>
 
-<p style="margin-top:40px;text-align:center;font-weight:500;">
-⚠️ Para agendar seu salto, solicitamos uma transferência de R$200,00. O valor será descontado no total.
-</p>
-</section>
-
-<section id="sobre">
-<h2>Sobre Nós</h2>
-<p style="text-align:center;max-width:800px;margin:auto;">
-A Stratus Paraquedismo proporciona experiências inesquecíveis na Serra do Cipó - MG, com equipe certificada, segurança rigorosa e atendimento premium.
-</p>
-</section>
-
-<section id="depoimentos">
-<h2>Depoimentos</h2>
-<div class="nota">★★★★★ 5.0 Avaliação Média</div>
-<div class="cards">
-<div class="depoimento">
-<p>“Uma experiência transformadora. Profissionalismo impecável.”</p>
-<strong>Mariana Souza • MG</strong>
-</div>
-<div class="depoimento">
-<p>“Segurança total e adrenalina pura. Voltarei!”</p>
-<strong>Ricardo Almeida • SP</strong>
-</div>
-<div class="depoimento">
-<p>“Equipe incrível, recomendo demais.”</p>
-<strong>Juliana Martins • RJ</strong>
 </div>
 </div>
 </section>
 
-<section id="galeria">
-<h2>Galeria</h2>
-<div class="galeria">
-<img src="IMG_1250.jpeg">
-<img src="IMG_1248.jpeg">
-<img src="IMG_1250.jpeg">
-</div>
+<section id="faq" class="faq">
+<h2>Perguntas Frequentes</h2>
+
+<details><summary>Existe transporte?</summary>
+<p>Viação Serro ou Saritur saem da Rodoviária de BH e param em frente ao aeroporto. 18km antes da Serra do Cipó-MG. Coloque Stratus Paraquedismo no GPS.</p>
+</details>
+
+<details><summary>O tempo está chuvoso, devo ir?</summary>
+<p>Sim, sempre surgem janelas seguras para salto.</p>
+</details>
+
+<details><summary>Há queimadas na região?</summary>
+<p>Não interferem nos saltos.</p>
+</details>
+
+<details><summary>Posso levar familiares?</summary>
+<p>Sim, temos área com restaurante/lanchonete.</p>
+</details>
+
+<details><summary>Precisa ter experiência?</summary>
+<p>Não. Você recebe instruções minutos antes do salto.</p>
+</details>
+
+</section>
+
+<section id="orientacoes">
+<h2>Orientações Salto Tandem</h2>
+
+<details><summary>Ver orientações completas</summary>
+<p>Para saltos tandem não é necessário curso. Limite de peso 90kg. Use roupas confortáveis e tênis. 
+Reserva de R$200 via PIX CNPJ 40.398.015/0001-74 (Estratosfera Esportes Aéreos). 
+Funcionamos no Aeroporto da Serra do Cipó MG-010 KM 79,5. 
+Cancelamentos seguem política descrita. BOM SALTO!</p>
+</details>
+
 </section>
 
 <section id="contato">
@@ -352,46 +182,27 @@ A Stratus Paraquedismo proporciona experiências inesquecíveis na Serra do Cip�
 <div class="mapa">
 <iframe src="https://maps.google.com/maps?q=Serra%20do%20Cipó%20MG&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </div>
-<div style="text-align:center;margin-top:30px;">
-<a class="botao" href="https://instagram.com/" target="_blank">Instagram Oficial</a>
-</div>
 </section>
 
 <footer>
-© 2026 Stratus Paraquedismo - Todos os direitos reservados
+© 2026 Stratus Paraquedismo
 </footer>
 
-<a class="whatsapp" href="https://wa.me/SEUNUMERO" target="_blank">
+<a class="whatsapp" href="https://wa.me/5531996115628" target="_blank">
 <svg viewBox="0 0 32 32">
 <path d="M16 .396C7.163.396 0 7.559 0 16.396c0 2.893.756 5.72 2.188 8.207L0 32l7.614-2.16a15.926 15.926 0 0 0 8.386 2.35h.006c8.837 0 16-7.163 16-16S24.837.396 16 .396z"/>
 </svg>
 </a>
 
 <script>
-
-window.addEventListener("scroll",function(){
-document.querySelector("header").classList.toggle("ativo",window.scrollY>50);
-});
-
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-if(window.scrollY>sec.offsetTop-500){
-sec.classList.add("ativo");
-}
-});
-});
-
 let index=0;
 const slides=document.querySelector(".slides");
 const total=document.querySelectorAll(".slide").length;
-
 setInterval(()=>{
 index++;
 if(index>=total){index=0;}
 slides.style.transform="translateX(-"+index*100+"%)";
 },4000);
-
 </script>
 
 </body>
