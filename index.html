@@ -1,566 +1,383 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stratus Paraquedismo - Saltos em Jaboticatubas, MG</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stratus Paraquedismo</title>
 
-        body {
-            font-family: 'Poppins', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        :root {
-            --primary: #ff6b00;
-            --primary-dark: #e55a00;
-            --secondary: #1a1a1a;
-            --white: #ffffff;
-            --light-gray: #f8f8f8;
-        }
+<style>
 
-        /* Header */
-        header {
-            background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
+/* RESET */
 
-        .logo {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
 
-        .logo span {
-            color: var(--white);
-        }
+body{
+background:#f4fbff;
+color:#003049;
+overflow-x:hidden;
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
+/* MENU FIXO */
 
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+transition:0.4s;
+z-index:1000;
+}
 
-        nav a:hover {
-            color: var(--primary);
-        }
+header.ativo{
+background:white;
+box-shadow:0 5px 25px rgba(0,0,0,0.1);
+}
 
-        .header-cta {
-            background: var(--primary);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
+header img{
+height:55px;
+}
 
-        .header-cta:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:#003049;
+font-weight:500;
+transition:0.3s;
+}
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 20px;
-        }
+nav a:hover{
+color:#00b4d8;
+}
 
-        .hero h1 {
-            font-size: 64px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 8px;
-            font-weight: 800;
-        }
+/* CARROSSEL */
 
-        .hero h2 {
-            font-size: 20px;
-            margin-bottom: 30px;
-            font-weight: 400;
-            letter-spacing: 4px;
-        }
+.carrossel{
+position:relative;
+width:100%;
+height:100vh;
+overflow:hidden;
+}
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 40px;
-            max-width: 500px;
-            opacity: 0.9;
-        }
+.slides{
+display:flex;
+transition:transform 0.8s ease-in-out;
+height:100%;
+}
 
-        .hero-btn {
-            background: var(--primary);
-            color: var(--white);
-            padding: 18px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s;
-            display: inline-block;
-            box-shadow: 0 5px 25px rgba(255, 107, 0, 0.4);
-        }
+.slide{
+min-width:100%;
+height:100vh;
+position:relative;
+}
 
-        .hero-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 107, 0, 0.5);
-        }
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
 
-        /* Pricing Section */
-        .pricing {
-            padding: 80px 20px;
-            background: var(--light-gray);
-            text-align: center;
-        }
+.slide::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(255,255,255,0.45);
+}
 
-        .pricing h2 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+.overlay-texto{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+z-index:10;
+}
 
-        .pricing-subtitle {
-            color: #666;
-            margin-bottom: 50px;
-            font-size: 16px;
-        }
+.overlay-texto h1{
+font-size:3rem;
+color:#0077b6;
+}
 
-        .pricing-cards {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.overlay-texto p{
+margin-top:15px;
+font-size:1.2rem;
+}
 
-        .price-card {
-            background: var(--white);
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            width: 320px;
-            transition: all 0.3s;
-            position: relative;
-        }
+.botao{
+margin-top:25px;
+padding:14px 35px;
+background:#00b4d8;
+color:white;
+text-decoration:none;
+border-radius:40px;
+display:inline-block;
+transition:0.3s;
+}
 
-        .price-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--primary);
-        }
+.botao:hover{
+background:#0077b6;
+transform:scale(1.05);
+}
 
-        .price-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
-        }
+.seta{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(255,255,255,0.8);
+border:none;
+font-size:2rem;
+padding:10px 15px;
+cursor:pointer;
+border-radius:50%;
+z-index:20;
+}
 
-        .price-card.featured {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-        }
+.esquerda{left:20px;}
+.direita{right:20px;}
 
-        .price-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
+.indicadores{
+position:absolute;
+bottom:25px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+}
 
-        .price-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--secondary);
-            text-transform: uppercase;
-        }
+.indicadores span{
+width:12px;
+height:12px;
+background:white;
+border-radius:50%;
+cursor:pointer;
+opacity:0.6;
+}
 
-        .price {
-            font-size: 42px;
-            color: var(--primary);
-            font-weight: 800;
-            margin: 15px 0;
-        }
+.indicadores span.ativo{
+background:#00b4d8;
+opacity:1;
+}
 
-        .price span {
-            font-size: 16px;
-            color: #888;
-            font-weight: 400;
-        }
+/* SEÇÕES */
 
-        .price-card ul {
-            list-style: none;
-            margin: 25px 0;
-            text-align: left;
-        }
+section{
+padding:100px 10%;
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
 
-        .price-card li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 14px;
-            color: #555;
-        }
+section.ativo{
+opacity:1;
+transform:translateY(0);
+}
 
-        .price-card li:last-child {
-            border-bottom: none;
-        }
+h2{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:60px;
+color:#0077b6;
+}
 
-        .price-card li::before {
-            content: "✓";
-            color: var(--primary);
-            font-weight: bold;
-            margin-right: 10px;
-        }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
 
-        .price-btn {
-            background: var(--secondary);
-            color: var(--white);
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            text-decoration: none;
-            display: block;
-        }
+.card{
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 20px 45px rgba(0,0,0,0.08);
+transition:0.4s;
+}
 
-        .price-btn:hover {
-            background: var(--primary);
-        }
+.card:hover{
+transform:translateY(-10px);
+}
 
-        .featured .price-btn {
-            background: var(--primary);
-        }
+.preco{
+font-size:1.8rem;
+color:#00b4d8;
+font-weight:700;
+margin:15px 0;
+}
 
-        .featured .price-btn:hover {
-            background: var(--primary-dark);
-        }
+.obs{
+background:#caf0f8;
+padding:25px;
+border-radius:20px;
+margin-top:40px;
+}
 
-        /* About Section */
-        .about {
-            padding: 80px 50px;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+footer{
+background:#0077b6;
+color:white;
+text-align:center;
+padding:40px;
+margin-top:60px;
+}
 
-        .about-image {
-            flex: 1;
-            height: 450px;
-            background: url('https://images.unsplash.com/photo-1529243856184-4f86fae9040c?w=800&q=80') center/cover;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
+/* WHATSAPP */
 
-        .about-text {
-            flex: 1;
-        }
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50%;
+font-size:1.5rem;
+text-decoration:none;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+z-index:1000;
+}
 
-        .about-text h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .about-text p {
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .contact-subtitle {
-            opacity: 0.8;
-            margin-bottom: 40px;
-        }
-
-        .contact-grid {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 16px;
-        }
-
-        .contact-item .icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .contact-item a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: var(--primary);
-        }
-
-        /* Footer */
-        footer {
-            background: #111;
-            color: #777;
-            text-align: center;
-            padding: 30px;
-        }
-
-        footer p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
-            z-index: 1000;
-            font-size: 30px;
-            transition: all 0.3s;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                gap: 15px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-                letter-spacing: 4px;
-            }
-
-            .hero h2 {
-                font-size: 14px;
-                letter-spacing: 2px;
-            }
-
-            .about {
-                flex-direction: column;
-                padding: 60px 20px;
-            }
-
-            .about-image {
-                width: 100%;
-                height: 300px;
-            }
-
-            .pricing-cards {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .price-card.featured {
-                transform: none;
-            }
-
-            .price-card.featured:hover {
-                transform: translateY(-10px);
-            }
-
-            .contact-grid {
-                flex-direction: column;
-                gap: 30px;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">STRATUS <span>PARAQUEDISMO</span></div>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#precos">Preços</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-        <a href="https://wa.me/5531996115628?text=Olá! Gostaria de agendar meu salto de paraquedas na Stratus Paraquedismo." class="header-cta" target="_blank">Agendar</a>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <h1>Stratus</h1>
-        <h2>Paraquedismo</h2>
-        <p>A experiência mais emocionante da sua vida está a um salto de distância</p>
-        <a href="https://wa.me/5531996115628?text=Olá! Gostaria de agendar meu salto de paraquedas na Stratus Paraquedismo." class="hero-btn" target="_blank">Agendar Agora</a>
-    </section>
+<header>
+<img src="IMG_1249.jpeg">
+<nav>
+<a href="#">Início</a>
+<a href="#agendamentos">Agendamentos</a>
+</nav>
+</header>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="precos">
-        <h2>Nossos Planos</h2>
-        <p class="pricing-subtitle">Escolha a melhor opção para sua experiência de salto</p>
-        
-        <div class="pricing-cards">
-            <!-- Plano Tandem -->
-            <div class="price-card">
-                <h3>Salto Tandem</h3>
-                <div class="price">R$ 890<span>/pessoa</span></div>
-                <ul>
-                    <li>Salto com instrutor</li>
-                    <li>Altitude: 4.000 metros</li>
-                    <li>Vídeo e fotos inclusos</li>
-                    <li>Certificado de conclusão</li>
-                    <li>Equipamento completo</li>
-                </ul>
-                <a href="https://wa.me/5531996115628?text=Olá! Gostaria de agendar um salto Tandem na Stratus Paraquedismo." class="price-btn" target="_blank">Agendar</a>
-            </div>
+<div class="carrossel">
+<div class="slides">
 
-            <!-- Plano Solo -->
-            <div class="price-card featured">
-                <h3>Salto Solo</h3>
-                <div class="price">R$ 690<span>/pessoa</span></div>
-                <ul>
-                    <li>Primeiro salto solo</li>
-                    <li>Altitude: 3.000 metros</li>
-                    <li>Treinamento incluso</li>
-                    <li>Instrutor no solo</li>
-                    <li>Certificado de conclusão</li>
-                </ul>
-                <a href="https://wa.me/5531996115628?text=Olá! Gostaria de agendar um salto Solo na Stratus Paraquedismo." class="price-btn" target="_blank">Agendar</a>
-            </div>
+<div class="slide">
+<img src="IMG_1250.jpeg">
+</div>
 
-            <!-- Plano AFF -->
-            <div class="price-card">
-                <h3>Curso AFF</h3>
-                <div class="price">R$ 2.990<span>/curso</span></div>
-                <ul>
-                    <li>8 níveis de treinamento</li>
-                    <li>Certificado profissional</li>
-                    <li>Instrutor dedicado</li>
-                    <li>Material didático</li>
-                    <li>Salvos ilimitados</li>
-                </ul>
-                <a href="https://wa.me/5531996115628?text=Olá! Gostaria de informações sobre o Curso AFF da Stratus Paraquedismo." class="price-btn" target="_blank">Agendar</a>
-            </div>
-        </div>
-    </section>
+<div class="slide">
+<img src="IMG_1248.jpeg">
+</div>
 
-    <!-- About Section -->
-    <section class="about" id="sobre">
-        <div class="about-image"></div>
-        <div class="about-text">
-            <h2>Sobre Nós</h2>
-            <p>A Stratus Paraquedismo é uma empresa especializada em saltos de paraquedas com os mais altos padrões de segurança e qualidade. Com instrutores altamente qualificados e equipamentos de última geração, proporcionamos a experiência mais emocionante da sua vida.</p>
-            <p>Nossa base está localizada em <strong>Jaboticatubas, Minas Gerais, Brazil</strong>, oferecendo vistas panorâmicas deslumbrantes durante a descida. Priorizamos a segurança, o conforto e a satisfação dos nossos clientes em cada salto.</p>
-            <a href="https://wa.me/5531996115628?text=Olá! Gostaria de saber mais sobre os serviços da Stratus Paraquedismo." class="hero-btn" target="_blank" style="display: inline-block; margin-top: 20px;">Fale Conosco</a>
-        </div>
-    </section>
+<div class="slide">
+<img src="IMG_1249.jpeg">
+</div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contato">
-        <h2>Entre em Contato</h2>
-        <p class="contact-subtitle">Estamos prontos para tirar todas as suas dúvidas</p>
-        
-        <div class="contact-grid">
-            <div class="contact-item">
-                <div class="icon">📍</div>
-                <span>Jaboticatubas, Minas Gerais, Brazil</span>
-            </div>
-            <div class="contact-item">
-                <div class="icon">📸</div>
-                <a href="https://instagram.com/daillytaina" target="_blank">@daillytaina</a>
-            </div>
-            <div class="contact-item">
-                <div class="icon">💬</div>
-                <a href="https://wa.me/5531996115628" target="_blank
+</div>
+
+<div class="overlay-texto">
+<h1>Stratus Paraquedismo</h1>
+<p>Viva a experiência mais intensa da sua vida.</p>
+<a href="#agendamentos" class="botao">Agendar Agora</a>
+</div>
+
+<button class="seta esquerda">&#10094;</button>
+<button class="seta direita">&#10095;</button>
+<div class="indicadores"></div>
+</div>
+
+<section id="agendamentos">
+<h2>Agendamentos</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Salto Tandem VIP</h3>
+<div class="preco">R$ 1.590,00</div>
+<p>Filmagem com GoPro + cameraman exclusivo.
+Imagens brutas + vídeo editado.</p>
+</div>
+
+<div class="card">
+<h3>Salto Tandem Handycam</h3>
+<div class="preco">R$ 1.180,00</div>
+<p>Filmagem com GoPro acoplada na mão do instrutor.</p>
+</div>
+
+<div class="card">
+<h3>Curso AFF</h3>
+<div class="preco">R$ 1.890,00</div>
+<p>Curso teórico + primeiro salto.</p>
+</div>
+
+</div>
+
+<div class="obs">
+Para agendar seu salto solicitamos transferência de R$200,00.
+O valor será descontado no total.
+</div>
+
+</section>
+
+<footer>
+© 2026 Stratus Paraquedismo • Serra do Cipó - MG
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5531999999999" target="_blank">💬</a>
+
+<script>
+
+const slides = document.querySelector(".slides");
+const slide = document.querySelectorAll(".slide");
+const prev = document.querySelector(".esquerda");
+const next = document.querySelector(".direita");
+const indicadoresContainer = document.querySelector(".indicadores");
+
+let index = 0;
+
+function mostrarSlide(i){
+index = i;
+slides.style.transform = `translateX(-${index * 100}%)`;
+document.querySelectorAll(".indicadores span").forEach(dot=>dot.classList.remove("ativo"));
+document.querySelectorAll(".indicadores span")[index].classList.add("ativo");
+}
+
+slide.forEach((_,i)=>{
+const dot = document.createElement("span");
+dot.addEventListener("click",()=>mostrarSlide(i));
+indicadoresContainer.appendChild(dot);
+});
+
+mostrarSlide(0);
+
+next.addEventListener("click",()=>{
+index = (index + 1) % slide.length;
+mostrarSlide(index);
+});
+
+prev.addEventListener("click",()=>{
+index = (index - 1 + slide.length) % slide.length;
+mostrarSlide(index);
+});
+
+setInterval(()=>{
+index = (index + 1) % slide.length;
+mostrarSlide(index);
+},5000);
+
+window.addEventListener("scroll",()=>{
+document.querySelectorAll("section").forEach(sec=>{
+const top = sec.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+sec.classList.add("ativo");
+}
+});
+document.querySelector("header").classList.toggle("ativo",window.scrollY>50);
+});
+
+</script>
+
+</body>
+</html>
